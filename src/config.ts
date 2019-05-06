@@ -34,17 +34,17 @@ export default async function getConfig() {
   if (!config) {
     config = await fetch(configUrl).then(resp => resp.json());
   }
-  
-  if (process.env.NODE_ENV === 'production') {
+
+  if (process.env.NODE_ENV === "production") {
     config.templates = {
       default: "/WebAssemblyStudio/dist/templates/index.js",
       arc: "/WebAssemblyStudio/dist/arc-templates/index.js"
-    }
+    };
   } else {
     config.templates = {
       default: "/dist/templates/index.js",
       arc: "/dist/arc-templates/index.js"
-    }
+    };
   }
 
   return config;
