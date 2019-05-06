@@ -1,7 +1,15 @@
 const path = require("path");
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
-module.exports = env => {
+function getPublicPath({ mode }) {
+  if (mode === 'production') {
+    return "/WebAssemblyStudio/dist/";
+  } else {
+    return "/dist/";
+  }
+}
+
+module.exports = (env, argv) => {
   const config = {
     entry: {
         main: "./src/index.tsx",
@@ -11,7 +19,7 @@ module.exports = env => {
         filename: "[name].bundle.js",
         chunkFilename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist/"),
-        publicPath: "/dist/",
+        publicPath: getPublicPath(argv),
     },
 
     // Enable sourcemaps for debugging webpack's output.
