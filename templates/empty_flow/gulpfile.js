@@ -1,9 +1,9 @@
 const gulp = require("gulp");
 
 gulp.task("build", callback => {
-  const { default: esmbly } = require('@esmbly/core');
-  const { default: FlowTransformer } = require('@esmbly/transformer-flow');
-  const { default: WasmTransformer } = require('@esmbly/transformer-wasm');
+  const esmbly = require('@esmbly/core');
+  const Flow = require('@esmbly/transformer-flow');
+  const Wasm = require('@esmbly/transformer-wasm');
   const file = project.getFile('src/add.js');
 
   esmbly.run({
@@ -15,13 +15,17 @@ gulp.task("build", callback => {
         type: '.js',
       },
     ],
+    transformers: [
+      Flow.createTransformer(),
+      Wasm.createTransformer()
+    ],
     output: [{ format: 'WebAssembly' }],
-    transformers: [FlowTransformer({}), WasmTransformer({})],
   })
   .then(([{ content }]) => {
     project.newFile('out/add.wasm', 'wasm', true).setData(content);
     callback();
-  }).catch((err) => callback(err));
+  })
+  .catch((err) => callback(err));
 });
 
 gulp.task("default", ["build"]);

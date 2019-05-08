@@ -3,9 +3,9 @@
 require.config({
   paths: {
     "binaryen": "https://assemblyscript.github.io/binaryen.js/index",
-    "@esmbly/core": "https://unpkg.com/@esmbly/core@0.0.4/dist/index.bundle",
-    "@esmbly/transformer-wasm": "https://unpkg.com/@esmbly/transformer-wasm@0.0.4/dist/index.bundle",
-    "@esmbly/transformer-jsdoc": "https://unpkg.com/@esmbly/transformer-jsdoc@0.0.4/dist/index.bundle",
+    "@esmbly/core": "https://unpkg.com/@esmbly/core@0.0.5/dist/index.bundle",
+    "@esmbly/transformer-wasm": "https://unpkg.com/@esmbly/transformer-wasm@0.0.5/dist/index.bundle",
+    "@esmbly/transformer-jsdoc": "https://unpkg.com/@esmbly/transformer-jsdoc@0.0.5/dist/index.bundle",
   }
 });
 logLn("Loading Esmbly ...");
