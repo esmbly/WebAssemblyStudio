@@ -1,0 +1,19 @@
+{
+  "name": "@wasm/empty_ts",
+  "description": "",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "@esmbly/cli": "^0.0.4",
+    "@esmbly/transformer-jsdoc": "^0.0.4",
+    "@esmbly/transformer-wasm": "^0.0.4",
+    "gulp": "^3"
+  },
+  "wasmStudio": {
+    "name": "Empty Esmbly JSDoc Project",
+    "description": "# Empty Esmbly JSDoc Project\n\nSee the [Esmbly documentation](https://github.com/esmbly/esmbly) for further instructions and documentation.",
+    "icon": "javascript-lang-file-icon"
+  }
+}
