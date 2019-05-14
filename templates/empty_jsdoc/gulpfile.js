@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 
-gulp.task("build", callback => {
+gulp.task("build", () => new Promise((resolve, reject) => {
   const esmbly = require('@esmbly/core');
   const JSDoc = require('@esmbly/transformer-jsdoc');
   const Wasm = require('@esmbly/transformer-wasm');
@@ -23,10 +23,10 @@ gulp.task("build", callback => {
   })
   .then(([{ content }]) => {
     project.newFile('out/add.wasm', 'wasm', true).setData(content);
-    callback();
+    resolve();
   })
-  .catch((err) => callback(err));
-});
+  .catch((err) => reject(err));
+}));
 
 gulp.task("default", ["build"]);
 
